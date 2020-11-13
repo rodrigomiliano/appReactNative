@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar'
 import axios from 'axios';
 import React, {Component, useState} from 'react';
-import { StyleSheet, TextInput, Button, View, Image, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, Button, View, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
 
 export default class App extends Component {
 
@@ -72,6 +72,7 @@ export default class App extends Component {
               onPress={this.handlerButton.bind(this)}>
               <Text>Buscar personaje</Text> 
           </TouchableOpacity>
+          <ScrollView style={styles.scrollView}>
           <Text style={styles.text}>Nombre: {this.state.response.name}</Text>          
           <Text style={styles.text}>Género: {this.state.response.gender}</Text>
           <Text style={styles.text}>Cultura: {this.state.response.culture}</Text>
@@ -81,6 +82,8 @@ export default class App extends Component {
           <Text style={styles.text}>Padre: {this.state.response.father}, Madre: {this.state.response.mather}</Text>          
           <Text style={styles.text}>Esposo/a: {this.state.response.spouse}</Text>
           <Text style={styles.text}>Actor: {this.state.response.playedBy}</Text>
+          <Text style={styles.text}></Text>
+          </ScrollView>
           <StatusBar style="auto" />
         </View>             
       );   
@@ -98,6 +101,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "grey",
+    padding: 8,
   },
   info: {
     color: "red",
@@ -123,4 +127,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white', 
     borderWidth: 2, 
   }, 
+  scrollView: {
+    backgroundColor: 'white',
+    //marginHorizontal: 20,
+    padding: 15,
+    marginTop: 20
+  },
 });
